@@ -1,0 +1,30 @@
+{% extends 'navbar/projectnavbar.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block body %}
+<div class="login-container">
+    <h2 align="center">Login</h2>
+    <form action="{% url 'UserLoginLogic' %}" method="POST" align="center">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="username" required>
+        <br>
+        <br>
+        <input type="password" name="password" placeholder="password" required>
+        <br>
+        <br>
+        <input type="submit" value="Login">
+        <br>
+        <br>
+    </form>
+</div>
+
+{% endblock %}
+
+</body>
+</html>

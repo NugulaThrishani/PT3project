@@ -1,0 +1,77 @@
+
+<html lang="en">
+<head>
+    <title>Login Page</title>
+    <style>
+        /* Basic styling for the login page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: bold; /* Make titles bold */
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #003366; /* Change background color to dark blue */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        input[type="submit"]:hover {
+            background-color: #002244; /* Darker shade for hover effect */
+        }
+        .error-message {
+            color: red;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2 align="center">Login</h2>
+    {% if error_message %}
+        <p class="error-message">{{ error_message }}</p>
+    {% endif %}
+    <form action="{% url 'UserLoginLogic' %}" method="POST" align="center">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="username" required>
+        <br>
+        <br>
+        <input type="password" name="password" placeholder="password" required>
+        <br>
+        <br>
+        <input type="submit" value="Login">
+        <br>
+        <br>
+    </form>
+</div>
+
+</body>
+</html>
